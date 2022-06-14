@@ -32,21 +32,11 @@ export default {
         const body = ref('');
         const type = ref('');
         let active = inject('active');
-        watch(notes, (cur) => {
-            let arr = [];
-            arr = JSON.parse(localStorage.getItem('session'));
-            console.log(arr);
-            localStorage.setItem('session', JSON.stringify(cur))
-            console.log( cur)
-            console.log(arr);
-        })
-        function saveDataToLocal() {
+        watch(notes, () => {
             localStorage.setItem('notes', JSON.stringify(notes));
-            console.log('saved to local');
-            let notesStored = localStorage.getItem('notes')
-            console.log(notesStored);
             
-        }
+        })
+      
 
         function submit() {
             console.group()
@@ -57,9 +47,9 @@ export default {
             console.groupEnd()
             notes.unshift({ title: title.value, date: 
             date.value, body: body.value, type: type.value });
-            saveDataToLocal();
             active.value = notes.filter(el => el.type === 'Active').length;
             title.value = date.value = body.value = type.value = '';
+            localStorage.setItem('notes', JSON.stringify(notes));
             
         }
 
@@ -70,7 +60,7 @@ export default {
             body,
             type,
             submit,
-            saveDataToLocal
+            
         }
     },
     

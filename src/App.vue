@@ -14,7 +14,7 @@ export default {
     let notes = inject('notes');
     let active = ref(notes.filter(el => el.type === 'Active').length);
     provide('active', active)
-
+  
     return {
       active,
       notes
@@ -29,19 +29,5 @@ export default {
 </script>
 
 <style>
-.card {
-  max-width: 700px;
-  margin: 0 auto;
-  margin-bottom: 20px
-}
 
-.btn-add {
-  margin-top: 20px;
-  background-color: #e5ebae;
-  color: rgb(48, 51, 62);
-}
-
-.btn-add:hover {
-  background-color: #efffad;
-}
 </style>
