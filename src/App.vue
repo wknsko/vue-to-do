@@ -1,26 +1,47 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+
+  <TheHead />
+  <TheBody />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TheBody from "./components/TheBody.vue";
+import TheHead from "./components/TheHead.vue";
+import { ref, inject, provide } from "vue";
 
 export default {
-  name: 'App',
+  setup() {
+    let notes = inject('notes');
+    let active = ref(notes.filter(el => el.type === 'Active').length);
+    provide('active', active)
+
+    return {
+      active,
+      notes
+    }
+  },
   components: {
-    HelloWorld
-  }
+    TheBody,
+    TheHead
 }
+}
+
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.card {
+  max-width: 700px;
+  margin: 0 auto;
+  margin-bottom: 20px
+}
+
+.btn-add {
+  margin-top: 20px;
+  background-color: #e5ebae;
+  color: rgb(48, 51, 62);
+}
+
+.btn-add:hover {
+  background-color: #efffad;
 }
 </style>

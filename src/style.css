@@ -1,0 +1,115 @@
+body {
+    background-color: rgb(237, 237, 200);
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
+}
+
+.card {
+    padding: 30px;
+    max-width: 700px;
+    margin: 0 auto;
+    z-index: 0;
+    margin-bottom: 50px;
+}
+
+.modal-mask {
+    position: fixed;
+    z-index: 9998;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.209);
+    display: table;
+    transition: opacity 0.3s ease;
+}
+
+.modal-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.modal-container {
+    width: 440px;
+    margin: 0px auto;
+    padding: 20px 30px;
+    background-color: #fff;
+    border-radius: 7px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.077);
+    transition: all 0.3s ease;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.modal-enter-from,
+.modal-leave-to {
+    opacity: 0;
+}
+
+.modal-enter-active .modal-container,
+.modal-leave-active .modal-container {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.close {
+    position: relative;
+    float: right;
+    width: 32px;
+    height: 32px;
+    opacity: 0.3;
+}
+
+.close:hover {
+    opacity: 1;
+}
+
+.close:before,
+.close:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 33px;
+    width: 2px;
+    background-color: #333;
+}
+
+.close:before {
+    transform: rotate(45deg);
+}
+
+.close:after {
+    transform: rotate(-45deg);
+}
+
+.active {
+    color: #5b8eba !important;
+    border-color: #5b8eba !important;
+}
+
+.cancelled {
+    color: #ba5b5b !important;
+    border-color: #ba5b5b!important;
+}
+
+.done {
+    color: #5bba92 !important;
+    border-color: #5bba92 !important;
+}
+
+.pending {
+    color: #b983d2 !important;
+    border-color: #b983d2 !important;
+}
+
+.type {
+    border: 1.5px solid #333;
+    color: #333;
+    width: 130px;
+    text-transform: lowercase;
+    border-radius: 20px;
+    margin: 10px auto;
+}
